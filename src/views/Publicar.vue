@@ -58,7 +58,6 @@
                 width="150"
                 class="mb-5"
               ></v-img>
-              <!-- <v-progress-circular  v-if="form.imageUrl" :value="uploadValue" color="amber" size="75" width="7"></v-progress-circular> -->
               <v-textarea
                 v-model="form.mensaje"
                 label="Mensaje máximo 200 caracteres"

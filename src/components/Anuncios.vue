@@ -2,6 +2,7 @@
   <div class="bg-anuncios">
     <v-container class="py-16">
       <v-row>
+        
         <v-col
           xs="12"
           sm="6"
@@ -11,7 +12,7 @@
           v-for="(gatito, i) in gatosDB"
           :key="i"
         >
-          <v-card height="100%">
+          <v-card class="cards" height="100%" @click.stop="dialog = true">
             <v-card-title
               class="
                 subtitle-1
@@ -22,6 +23,7 @@
                 white--text
                 justify-center
                 d-flex
+                mb-3
               "
             >
               {{ gatito.nombre }}</v-card-title
@@ -60,7 +62,7 @@
                     class="btn"
                     v-if="logueado"
                     @click="contacto(gatito.telefono)"
-                    color="cyan darken-3 mx-auto"
+                    color="cyan darken-3"
                     >Te gustaría adoptarme?</v-btn
                   >
                 </div>
@@ -80,6 +82,7 @@ export default {
   data() {
     return {
       login: "",
+      dialog: false,
     };
   },
   props: {
@@ -112,6 +115,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
 .bg-anuncios {
+  // background-color: #8bffff;
   background-color: #eeeeee;
 }
 .card-text {
@@ -119,62 +123,72 @@ export default {
 }
 .btn {
   position: absolute;
+  left: 50%;
+  margin-left: -125.414px;
   bottom: 3%;
 }
-@media (min-width: 320px) {
-  .btn {
-    left: 25px;
-  }
+.cards {
+  box-shadow: 5px 10px #7a7a7a;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
 }
-@media (min-width: 360px) {
-  .btn {
-    left: 50px;
-  }
+.cards:hover {
+  box-shadow: 0 10px 20px #7a7a7a;
 }
-@media (min-width: 375px) {
-  .btn {
-    left: 57px;
-  }
-}
-@media (min-width: 411px) {
-  .btn {
-    left: 75px;
-  }
-}
-@media (min-width: 480px) {
-  .btn {
-    left: 104px;
-  }
-}
-@media (min-width: 540px) {
-  .btn {
-    left: 135px;
-  }
-}
-@media (min-width: 540px) {
-  .btn {
-    left: 135px;
-  }
-}
-@media (min-width: 600px) {
-  .btn {
-    left: 17px;
-  }
-}
-@media (min-width: 768px) {
-  .btn {
-    left: 60px;
-  }
-}
-@media (min-width: 960px) {
-  .btn {
-    left: 18px;
-  }
-}
-@media (min-width: 992px) {
-  .btn {
-    left: 18px;
-  }
-}
+// @media (min-width: 320px) {
+//   .btn {
+//     left: 25px;
+//   }
+// }
+// @media (min-width: 360px) {
+//   .btn {
+//     left: 50px;
+//   }
+// }
+// @media (min-width: 375px) {
+//   .btn {
+//     left: 57px;
+//   }
+// }
+// @media (min-width: 411px) {
+//   .btn {
+//     left: 75px;
+//   }
+// }
+// @media (min-width: 480px) {
+//   .btn {
+//     left: 104px;
+//   }
+// }
+// @media (min-width: 540px) {
+//   .btn {
+//     left: 135px;
+//   }
+// }
+// @media (min-width: 540px) {
+//   .btn {
+//     left: 135px;
+//   }
+// }
+// @media (min-width: 600px) {
+//   .btn {
+//     left: 17px;
+//   }
+// }
+// @media (min-width: 768px) {
+//   .btn {
+//     left: 60px;
+//   }
+// }
+// @media (min-width: 960px) {
+//   .btn {
+//     left: 18px;
+//   }
+// }
+// @media (min-width: 992px) {
+//   .btn {
+//     left: 18px;
+//   }
+// }
 </style>
 >
