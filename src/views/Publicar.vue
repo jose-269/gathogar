@@ -187,11 +187,6 @@ export default {
             console.log(error.message);
           }
         );
-        // console.log(nuevoGato.imagen);
-
-        // if(this.uploadValue == 100) {
-        //       this.dialog = false
-        //     }
       }
     },
     limpiar() {

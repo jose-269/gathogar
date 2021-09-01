@@ -1,5 +1,9 @@
 <template>
   <div class="bg-anuncios">
+    <!-- :style="{visibility: gatosDB ? 'visible'  : 'hidden'}" -->
+    <div class="loading" v-if="loader === false">
+      <Spinner class="loading__spinner" />
+    </div>
     <v-container class="py-16">
       <v-row>
         <v-col
@@ -104,6 +108,7 @@
 </template>
 
 <script>
+import Spinner from "@/components/Spinner.vue";
 import { mapState } from "vuex";
 export default {
   name: "Anuncios",
@@ -112,6 +117,9 @@ export default {
       login: "",
       dialog: false,
     };
+  },
+  components: {
+    Spinner,
   },
   props: {
     gatos: {
@@ -135,7 +143,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["logueado"]),
+    ...mapState(["logueado", "loader"]),
   },
 };
 </script>
@@ -163,6 +171,18 @@ export default {
 .cards:hover {
   box-shadow: 0 10px 20px #7a7a7a;
 }
+// .loading {
+//   // height: 100vh;
+//   // text-align: center;
+//   // margin: auto;
+//   // &__spinner {
+//     // height: 100%;
+//     // width: 100%;
+//     // position: absolute;
+//     // left: 50%;
+//     // top: 50%;
+//   // }
+// }
 // @media (min-width: 320px) {
 //   .btn {
 //     left: 25px;

@@ -34,9 +34,4 @@ export default {};
 .footer-text {
   font-family: $main-font;
 }
-/* .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-} */
 </style>

@@ -32,6 +32,7 @@ export default new Vuex.Store({
     },
     movil: "",
     logueado: false,
+    loader: false
   },
   getters: {
     totalGatitos(state) {
@@ -98,6 +99,9 @@ export default new Vuex.Store({
     setLogin(state) {
       state.logueado = true;
     },
+    setLoader(state, payload) {
+      state.loader = payload;
+    }
   },
   actions: {
     async getLog({ commit }) {
@@ -145,7 +149,6 @@ export default new Vuex.Store({
     },
     //Traer gatitos desde DB
     async getGatitosDB({ commit }) {
-      // let img = ""
       try {
         const req = await db.collection("gatitosDB").get();
         if (req) {
@@ -154,12 +157,8 @@ export default new Vuex.Store({
             const gatos = el.data();
             const id = el.id;
             gatos.id = id;
-            
-            // storage.ref().child(`imagenes/${gatos.telefono}`).getDownloadURL().then((url) => {
-            //   gatos.img = url
-            //   console.log(gatos.img);
-            // });
             commit("cargarGatitosDB", gatos);
+            commit("setLoader", true)
           });
         }
       } catch (error) {
